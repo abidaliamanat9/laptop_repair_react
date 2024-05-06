@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { DetailForm } from './modules/shop/detailForm'
+import { Form } from './modules/location/form'
+import { ShopIndex } from './modules/shop'
+import { LocationIndex } from './modules/location'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Navbar />
+            <Routes>
+                <Route exact path="/shops" element={<ShopIndex />}></Route>
+                <Route exact path="/shops/create"  element={<DetailForm />}></Route>
+                <Route exact path='/locations' element={<LocationIndex/>}></Route>
+                <Route path="/locations/create" element={<Form />}></Route>
+            </Routes>
+        </>
+    )
 }
 
-export default App;
+export default App
